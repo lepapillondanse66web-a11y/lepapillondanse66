@@ -1462,3 +1462,11 @@ p { margin: 0 0 1em; }
 .bk-event__when { margin: 0 0 0.6rem; }
 .bk-event__text { margin-block: 0.8rem 1rem; white-space: pre-line; }
 .bk-event .bk-step { margin-block-start: 1.2rem; }
+
+/* Página de reservas: aire entre el texto, la llamada gratuita y las secciones */
+.bk .free-call { margin-block: clamp(2rem, 5vw, 3rem) 0; }
+.bk .events__subtitle { margin-block: clamp(2.5rem, 7vw, 4rem) 0; text-align: center; }
+/* En celular el botón de la llamada entra en una línea */
+@media (max-width: 480px) {
+  .free-call .ornate--lg { font-size: 0.85rem; letter-spacing: 0.05em; padding-inline: 1.2rem; }
+}
