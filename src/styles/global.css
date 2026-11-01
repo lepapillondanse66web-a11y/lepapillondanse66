@@ -595,6 +595,32 @@ p { margin: 0 0 1em; }
   animation: welcome-in 1.2s ease both, float 6s ease-in-out 1.2s infinite;
 }
 .welcome__enter { animation: welcome-in 1.2s ease 0.4s both; }
+/* "Entrer sans musique": link discreto, en la línea del sitio */
+.welcome__silent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  margin-block-start: 1.4rem;
+  padding: 0.45em 0.9em;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 248 240 / 0.35);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: var(--purple);
+  font: italic 500 clamp(1rem, 0.9rem + 0.4vw, 1.2rem) var(--f-text);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  animation: welcome-in 1.2s ease 0.8s both;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.welcome__silent span {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent) no-repeat 50% 100% / 100% 1px;
+  padding-block-end: 2px;
+}
+.welcome__silent svg { opacity: 0.8; flex: none; }
+.welcome__silent:hover { background: rgb(255 248 240 / 0.6); color: var(--plum); }
+.welcome__silent:focus-visible { outline: 2px solid rgb(118 43 135 / 0.5); outline-offset: 3px; }
 
 /* ---------- Botones con el estilo del logo ---------- */
 /* Óvalo crema con borde dorado doble. Se adapta al ancho del texto. */

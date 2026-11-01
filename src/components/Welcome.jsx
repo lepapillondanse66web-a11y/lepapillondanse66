@@ -42,8 +42,13 @@ export default function Welcome() {
       <OrnateButton ref={button} className="welcome__enter" onClick={() => enter(true)}>
         {t('welcome.enter')}
       </OrnateButton>
-      <button className="welcome__silent" onClick={() => enter(false)}>
-        {t('welcome.enterSilent')}
+      <button type="button" className="welcome__silent" onClick={() => enter(false)}>
+        {/* Parlante en silencio */}
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M16 9.5l5 5M21 9.5l-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <span>{t('welcome.enterSilent')}</span>
       </button>
     </div>
   )
