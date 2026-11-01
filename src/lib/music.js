@@ -50,7 +50,36 @@ export async function playMusic() {
 }
 
 export function pauseMusic() {
+  pausedByBackground = false
   audio?.pause()
+}
+
+// Si la persona cambia de app, de pestaña, minimiza el navegador o bloquea el
+// celular, la música se pausa. Al volver, sigue sonando (solo si estaba sonando).
+let pausedByBackground = false
+
+function onVisibility() {
+  if (!audio) return
+  if (document.hidden) {
+    if (!audio.paused) {
+      pausedByBackground = true
+      audio.pause()
+    }
+  } else if (pausedByBackground) {
+    pausedByBackground = false
+    playMusic()
+  }
+}
+
+if (typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', onVisibility)
+  // Safari en iPhone a veces solo avisa con pagehide al salir
+  window.addEventListener('pagehide', () => {
+    if (audio && !audio.paused) {
+      pausedByBackground = true
+      audio.pause()
+    }
+  })
 }
 
 // Para useSyncExternalStore
