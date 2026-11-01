@@ -44,7 +44,19 @@ export default function Header({ full = false }) {
 
       {full && (
         <h1 className="header__title">
-          {lines.map((l) => <span key={l}>{l}</span>)}
+          {lines.map((l) => {
+            const items = l.split(/\s*[–—]\s*/)
+            return (
+              <span key={l} className="header__line">
+                {items.map((w, i) => (
+                  <span key={w} className="header__item">
+                    {w}
+                    {i < items.length - 1 && <span className="header__dot" aria-hidden="true">·</span>}
+                  </span>
+                ))}
+              </span>
+            )
+          })}
         </h1>
       )}
 
