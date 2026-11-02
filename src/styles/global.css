@@ -134,9 +134,10 @@ p { margin: 0 0 1em; }
   margin: 1.6rem 0 1.9rem;
   font-family: var(--f-title);
   font-weight: 400;
-  font-size: clamp(0.94rem, min(0.6rem + 1.6vw, 4.6vh), 2.4rem);
+  font-size: clamp(0.9rem, min(4.2vw, 0.62rem + 2vw, 5.2vh), 2.9rem);
   line-height: 1.9;
-  letter-spacing: clamp(0.05em, 0.5vw - 0.02em, 0.16em);
+  letter-spacing: clamp(0.03em, 0.5vw - 0.04em, 0.15em);
+  margin-inline: calc(var(--gutter) * -0.6);
   text-transform: uppercase;
   color: #5a1f69;
   text-shadow: 0 1px 10px rgb(255 255 255 / 0.65);
@@ -155,7 +156,7 @@ p { margin: 0 0 1em; }
 .header__line { display: block; }
 /* Cada clase entera: nunca se corta a la mitad */
 .header__item { white-space: nowrap; }
-.header__item + .header__item { margin-inline-start: 0.55em; }
+.header__item + .header__item { margin-inline-start: 0.2em; }
 .header__dot { margin-inline-start: 0.55em; color: #b8862f; font-weight: 700; }
 [dir='rtl'] .header__title { letter-spacing: 0; text-transform: none; font-size: clamp(1.15rem, 0.7rem + 1.6vw, 2.3rem); }
 

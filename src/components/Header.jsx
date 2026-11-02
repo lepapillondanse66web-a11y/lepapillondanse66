@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import BookLink from './BookLink'
@@ -49,10 +49,13 @@ export default function Header({ full = false }) {
             return (
               <span key={l} className="header__line">
                 {items.map((w, i) => (
-                  <span key={w} className="header__item">
-                    {w}
-                    {i < items.length - 1 && <span className="header__dot" aria-hidden="true">·</span>}
-                  </span>
+                  <Fragment key={w}>
+                    {i > 0 && ' '}
+                    <span className="header__item">
+                      {w}
+                      {i < items.length - 1 && <span className="header__dot" aria-hidden="true">·</span>}
+                    </span>
+                  </Fragment>
                 ))}
               </span>
             )
