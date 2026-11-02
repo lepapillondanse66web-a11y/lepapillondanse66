@@ -134,8 +134,8 @@ p { margin: 0 0 1em; }
   margin: 1.6rem 0 1.9rem;
   font-family: var(--f-title);
   font-weight: 400;
-  font-size: clamp(0.9rem, min(4.2vw, 0.62rem + 2vw, 5.2vh), 2.9rem);
-  line-height: 1.9;
+  font-size: clamp(0.9rem, min(4.2vw, 0.62rem + 2.4vw, 4.9vh), 2.75rem);
+  line-height: 1.7;
   letter-spacing: clamp(0.03em, 0.5vw - 0.04em, 0.15em);
   margin-inline: calc(var(--gutter) * -0.6);
   text-transform: uppercase;
@@ -158,6 +158,9 @@ p { margin: 0 0 1em; }
 .header__item { white-space: nowrap; }
 .header__item + .header__item { margin-inline-start: 0.2em; }
 .header__dot { margin-inline-start: 0.55em; color: #b8862f; font-weight: 700; }
+@media (max-height: 760px) and (min-width: 900px) {
+  .header__title { margin-block: 1rem 1.2rem; }
+}
 [dir='rtl'] .header__title { letter-spacing: 0; text-transform: none; font-size: clamp(1.15rem, 0.7rem + 1.6vw, 2.3rem); }
 
 /* Botones de la portada (menú, música, idioma) más grandes en pantallas grandes */
