@@ -1,3 +1,4 @@
+import MapEmbed from './MapEmbed'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SITE } from '../config/site'
@@ -36,13 +37,7 @@ export default function InPerson({ compact = false }) {
           )}
         </dl>
         {!compact && (
-          <iframe
-            className="in-person__map"
-            title={studio.name}
-            src={studio.mapEmbed}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <MapEmbed className="in-person__map" />
         )}
       </div>
 
