@@ -15,7 +15,7 @@ export const SITE = {
     name: 'Salle Sweet Om « Centre del Món »',
     street: '1 bis rue de la Pépinière Robin',
     city: '66000 Perpignan',
-    mapEmbed: 'https://www.google.com/maps?q=Salle%20Sweet%20Om%2C%201%20bis%20rue%20de%20la%20P%C3%A9pini%C3%A8re%20Robin%2C%2066000%20Perpignan&z=16&output=embed',
+    mapEmbed: 'https://www.google.com/maps?q=Salle%20Sweet%20Om%2C%201%20bis%20rue%20de%20la%20P%C3%A9pini%C3%A8re%20Robin%2C%2066000%20Perpignan&output=embed',
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1%20bis%20rue%20de%20la%20P%C3%A9pini%C3%A8re%20Robin%2C%2066000%20Perpignan',
   },
   // Ficha de inscripción: poner el PDF en public/docs/inscription.pdf
