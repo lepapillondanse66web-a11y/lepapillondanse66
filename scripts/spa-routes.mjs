@@ -1,5 +1,5 @@
 // Después de `vite build`:
-//  1. Crea un index.html por ruta (/fr/soins/index.html, etc.) para que los links
+//  1. Crea un .html por ruta (/fr/soins.html, etc.) para que los links
 //     directos funcionen en cualquier hosting estático, cada uno con su título,
 //     descripción, idioma y enlaces a las otras versiones (lo que lee Google).
 //  2. Escribe robots.txt y sitemap.xml.
@@ -9,7 +9,7 @@
 //   SEO_INDEX  "true" para dejar entrar a Google. Mientras no esté, el sitio
 //              queda fuera de los buscadores (versión de prueba).
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { NOINDEX, SERVICES, pageTitle } from '../src/config/seo.js'
 
 const SITE_URL = (process.env.SITE_URL || 'https://lepapillondanse66-5lye.onrender.com').replace(/\/$/, '')
@@ -51,19 +51,16 @@ function render(lang, page) {
 
 for (const lang of LANGS) {
   for (const page of PAGES) {
-    const dir = join(dist, lang, page)
-    await mkdir(dir, { recursive: true })
-    const html = render(lang, page)
-    await writeFile(join(dir, 'index.html'), html)
-    // Cloudflare Pages sirve /es/sully.html en /es/sully sin redirigir a /es/sully/
-    await writeFile(`${dir}.html`, html)
+    // /es/sully → dist/es/sully.html. Cloudflare Pages lo sirve en /es/sully;
+    // con una carpeta /es/sully/index.html redirigiría a /es/sully/ (con barra)
+    const file = `${join(dist, lang, page)}.html`.replace(/\/\.html$/, '.html')
+    await mkdir(dirname(file), { recursive: true })
+    await writeFile(file, render(lang, page))
   }
 }
 
 // Raíz, panel y 404: nunca en Google
 const hidden = base.replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>')
-await mkdir(join(dist, 'admin'), { recursive: true })
-await writeFile(join(dist, 'admin', 'index.html'), hidden)
 await writeFile(join(dist, 'admin.html'), hidden)
 await writeFile(join(dist, '404.html'), hidden)
 await writeFile(join(dist, 'index.html'), INDEX ? render(DEFAULT_LANG, '') : hidden)
