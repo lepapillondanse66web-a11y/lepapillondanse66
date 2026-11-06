@@ -5,15 +5,14 @@
 //  2. Escribe robots.txt y sitemap.xml.
 //
 // Variables de entorno (en Render → Environment):
-//   SITE_URL   dominio público (al conectar el dominio: https://www.lepapillondanse66.com)
-//   SEO_INDEX  "true" para dejar entrar a Google. Mientras no esté, el sitio
-//              queda fuera de los buscadores (versión de prueba).
+//   SITE_URL   dominio público (por defecto https://www.lepapillondanse66.com)
+//   SEO_INDEX  "false" para sacar el sitio de Google (por ejemplo en una copia de prueba)
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { NOINDEX, SERVICES, pageTitle } from '../src/config/seo.js'
 
-const SITE_URL = (process.env.SITE_URL || 'https://lepapillondanse66-5lye.onrender.com').replace(/\/$/, '')
-const INDEX = process.env.SEO_INDEX === 'true'
+const SITE_URL = (process.env.SITE_URL || 'https://www.lepapillondanse66.com').replace(/\/$/, '')
+const INDEX = process.env.SEO_INDEX !== 'false'
 const LANGS = ['fr', 'es', 'en', 'ar']
 const DEFAULT_LANG = 'fr'
 const PAGES = ['', 'sully', 'cours', 'soins', 'evenements', 'en-ligne', 'contact', 'inscription',
