@@ -53,7 +53,10 @@ for (const lang of LANGS) {
   for (const page of PAGES) {
     const dir = join(dist, lang, page)
     await mkdir(dir, { recursive: true })
-    await writeFile(join(dir, 'index.html'), render(lang, page))
+    const html = render(lang, page)
+    await writeFile(join(dir, 'index.html'), html)
+    // Cloudflare Pages sirve /es/sully.html en /es/sully sin redirigir a /es/sully/
+    await writeFile(`${dir}.html`, html)
   }
 }
 
@@ -61,6 +64,7 @@ for (const lang of LANGS) {
 const hidden = base.replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>')
 await mkdir(join(dist, 'admin'), { recursive: true })
 await writeFile(join(dist, 'admin', 'index.html'), hidden)
+await writeFile(join(dist, 'admin.html'), hidden)
 await writeFile(join(dist, '404.html'), hidden)
 await writeFile(join(dist, 'index.html'), INDEX ? render(DEFAULT_LANG, '') : hidden)
 
