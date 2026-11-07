@@ -324,5 +324,50 @@
     "packageNote_one": "Une séance.",
     "packageNote_other": "Forfait de {{count}} séances, payé en une fois. Vous réservez ici la première ; les suivantes sont fixées avec Sully.",
     "policy": "Annulation possible jusqu'à 24 h avant. Les paiements ne sont pas remboursés, mais vous pouvez changer la date en nous écrivant."
+  },
+  "lp": {
+    "eyebrow": "Perpignan · Pyrénées-Orientales",
+    "title": "Cours de danse orientale à Perpignan",
+    "metaTitle": "Cours de danse orientale à Perpignan | Le Papillon Danse 66",
+    "metaDescription": "Cours de danse orientale et de danse intuitive à Perpignan pour toutes les femmes, débutantes ou confirmées. Lundi 18h et mercredi 11h, Salle Sweet Om.",
+    "intro": "Le Papillon Danse 66 propose des cours de <b>danse orientale</b> et de <b>danse intuitive</b> pour toutes les femmes, débutantes ou confirmées. Un espace bienveillant pour bouger, se reconnecter à son corps et révéler sa féminité.",
+    "imgAlt": "Cours de danse orientale à Perpignan avec Sully",
+    "h2": "Une danse orientale intuitive",
+    "text": "Avec Sully, la danse orientale ne se résume pas à des chorégraphies : on explore les mouvements ancestraux — ondulations, isolations, déplacements — en écoutant ce que le corps a envie d'exprimer. Chaque séance mêle technique et liberté.",
+    "points": [
+      "Ouvert à toutes les femmes, sans limite d'âge",
+      "Aucune expérience nécessaire",
+      "Petits groupes, accompagnement personnalisé",
+      "Préparation corporelle incluse dans chaque séance"
+    ],
+    "faqTitle": "Questions fréquentes",
+    "faq": [
+      [
+        "Faut-il avoir déjà dansé ?",
+        "Non. Les cours sont ouverts à toutes les femmes, quel que soit leur âge ou leur niveau. On avance à votre rythme, sans jugement."
+      ],
+      [
+        "Comment se passe une séance ?",
+        "On commence par la préparation corporelle, un échauffement intuitif pour se reconnecter à son corps. Puis on danse : danse intuitive et danse orientale intuitive, dans la même séance."
+      ],
+      [
+        "Que faut-il apporter ?",
+        "Une tenue confortable et une bouteille d'eau. [À CONFIRMER : foulard à sequins, pieds nus ou chaussons ?]"
+      ],
+      [
+        "Y a-t-il un cours d'essai ?",
+        "[À CONFIRMER : la première séance d'essai est-elle offerte ?]"
+      ],
+      [
+        "Combien coûtent les cours ?",
+        "[À CONFIRMER : tarif à la séance, au mois ou au trimestre.]"
+      ],
+      [
+        "Où se garer ?",
+        "Au Lidl ou dans les rues alentour de la Salle Sweet Om."
+      ]
+    ],
+    "book": "Réserver ma place",
+    "all": "Tous les cours et ateliers"
   }
 }

@@ -17,7 +17,7 @@ export const PAGE_TITLES = {
   inscription: ['signup.title', true],
   reserver: ['booking.metaTitle', false],
   'reserver/annuler': ['booking.cancel.metaTitle', false],
-  'cours-danse-orientale-perpignan': ['courses.title', true],
+  'cours-danse-orientale-perpignan': ['lp.metaTitle', false],
 }
 
 // Páginas que no tienen sentido en Google

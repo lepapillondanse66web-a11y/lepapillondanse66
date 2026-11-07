@@ -324,5 +324,50 @@
     "packageNote_one": "One session.",
     "packageNote_other": "Package of {{count}} sessions, paid in full. Book the first one here; the rest are arranged with Sully.",
     "policy": "You can cancel up to 24 hours before. Payments are non-refundable, but you can change the date by messaging us."
+  },
+  "lp": {
+    "eyebrow": "Perpignan · Pyrénées-Orientales",
+    "title": "Belly dance classes in Perpignan",
+    "metaTitle": "Belly dance classes in Perpignan | Le Papillon Danse 66",
+    "metaDescription": "Oriental (belly) dance and intuitive dance classes in Perpignan for all women, beginners or experienced. Monday 6 pm and Wednesday 11 am, Salle Sweet Om.",
+    "intro": "Le Papillon Danse 66 offers <b>oriental (belly) dance</b> and <b>intuitive dance</b> classes for all women, beginners or experienced. A warm space to move, reconnect with your body and reveal your femininity.",
+    "imgAlt": "Belly dance class in Perpignan with Sully",
+    "h2": "An intuitive oriental dance",
+    "text": "With Sully, oriental dance is more than choreography: we explore the ancestral movements — undulations, isolations, travelling steps — listening to what the body wants to express. Each session blends technique and freedom.",
+    "points": [
+      "Open to all women, at any age",
+      "No experience needed",
+      "Small groups, personal guidance",
+      "Body conditioning included in every session"
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      [
+        "Do I need dance experience?",
+        "No. Classes are open to all women, whatever their age or level. You progress at your own pace, without judgement."
+      ],
+      [
+        "What happens in a session?",
+        "We start with body conditioning, an intuitive warm-up to reconnect with the body. Then we dance: intuitive dance and intuitive oriental dance, in the same session."
+      ],
+      [
+        "What should I bring?",
+        "Comfortable clothes and a bottle of water. [TO CONFIRM: hip scarf, barefoot or dance shoes?]"
+      ],
+      [
+        "Is there a trial class?",
+        "[TO CONFIRM: is the first trial class free?]"
+      ],
+      [
+        "How much do classes cost?",
+        "[TO CONFIRM: price per class, per month or per term.]"
+      ],
+      [
+        "Where can I park?",
+        "At the Lidl or in the nearby streets around Salle Sweet Om."
+      ]
+    ],
+    "book": "Book my spot",
+    "all": "All classes and workshops"
   }
 }

@@ -324,5 +324,50 @@
     "packageNote_one": "Una sesión.",
     "packageNote_other": "Paquete de {{count}} sesiones, se paga el total. Acá reservás la primera; las siguientes se acuerdan con Sully.",
     "policy": "Podés cancelar hasta 24 h antes. Los pagos no se reembolsan, pero podés cambiar la fecha escribiéndonos."
+  },
+  "lp": {
+    "eyebrow": "Perpignan · Pirineos Orientales",
+    "title": "Clases de danza oriental en Perpignan",
+    "metaTitle": "Clases de danza oriental en Perpignan | Le Papillon Danse 66",
+    "metaDescription": "Clases de danza oriental y danza intuitiva en Perpignan para todas las mujeres, principiantes o con experiencia. Lunes 18 h y miércoles 11 h, Salle Sweet Om.",
+    "intro": "Le Papillon Danse 66 ofrece clases de <b>danza oriental</b> y de <b>danza intuitiva</b> para todas las mujeres, principiantes o con experiencia. Un espacio cálido para moverse, reconectar con el cuerpo y despertar la feminidad.",
+    "imgAlt": "Clase de danza oriental en Perpignan con Sully",
+    "h2": "Una danza oriental intuitiva",
+    "text": "Con Sully, la danza oriental no se reduce a coreografías: exploramos los movimientos ancestrales — ondulaciones, aislamientos, desplazamientos — escuchando lo que el cuerpo quiere expresar. Cada sesión combina técnica y libertad.",
+    "points": [
+      "Abierto a todas las mujeres, sin límite de edad",
+      "No hace falta experiencia",
+      "Grupos reducidos y acompañamiento personalizado",
+      "Preparación corporal incluida en cada sesión"
+    ],
+    "faqTitle": "Preguntas frecuentes",
+    "faq": [
+      [
+        "¿Hace falta haber bailado antes?",
+        "No. Las clases están abiertas a todas las mujeres, sin importar la edad o el nivel. Se avanza a tu ritmo, sin juicios."
+      ],
+      [
+        "¿Cómo es una sesión?",
+        "Empezamos con la preparación corporal, un calentamiento intuitivo para reconectar con el cuerpo. Después bailamos: danza intuitiva y danza oriental intuitiva, en la misma sesión."
+      ],
+      [
+        "¿Qué tengo que llevar?",
+        "Ropa cómoda y una botella de agua. [A CONFIRMAR: ¿pañuelo con monedas, descalzas o con zapatillas?]"
+      ],
+      [
+        "¿Hay clase de prueba?",
+        "[A CONFIRMAR: ¿la primera clase de prueba es gratis?]"
+      ],
+      [
+        "¿Cuánto cuestan las clases?",
+        "[A CONFIRMAR: precio por clase, por mes o por trimestre.]"
+      ],
+      [
+        "¿Dónde estacionar?",
+        "En el Lidl o en las calles alrededor de la Salle Sweet Om."
+      ]
+    ],
+    "book": "Reservar mi lugar",
+    "all": "Todos los cursos y talleres"
   }
 }
