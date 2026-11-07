@@ -1,1 +1,25 @@
-/*    /index.html   200
+# Direcciones del sitio viejo de Wix → páginas nuevas (301 = mudanza permanente,
+# así Google pasa el posicionamiento de las páginas viejas a las nuevas)
+/portfolio-collections/portfolio/réservation-de-cours-en-ligne  /fr/reserver  301
+/portfolio-collections/portfolio/re%CC%81servation-de-cours-en-ligne  /fr/reserver  301
+/portfolio-collections/portfolio/r%C3%A9servation-de-cours-en-ligne  /fr/reserver  301
+/portfolio-collections/portfolio/réservation-de-cours-en-ligne  /fr/reserver  301
+/portfolio-collections/portfolio/pr%C3%A9paration-corporelle-du-danseur  /fr/cours  301
+/portfolio-collections/portfolio/préparation-corporelle-du-danseur  /fr/cours  301
+/portfolio-collections/portfolio/pre%CC%81paration-corporelle-du-danseur  /fr/cours  301
+/portfolio-collections/portfolio/préparation-corporelle-du-danseur  /fr/cours  301
+/portfolio-collections/portfolio/se%CC%81ances-de-danse-orientale  /fr/cours  301
+/portfolio-collections/portfolio/séances-de-danse-orientale  /fr/cours  301
+/portfolio-collections/portfolio/s%C3%A9ances-de-danse-orientale  /fr/cours  301
+/portfolio-collections/portfolio/séances-de-danse-orientale  /fr/cours  301
+/portfolio-collections/portfolio/cours-de-danse-intuitive  /fr/cours  301
+/portfolio-collections/portfolio/ateliers-et-stages-de-danse  /fr/evenements  301
+/portfolio-collections/*  /fr/cours  301
+/portfolio  /fr/cours  301
+/mi-historia  /fr/sully  301
+/book-online  /fr/reserver  301
+/booking-calendar/*  /fr/reserver  301
+/service-page/*  /fr/reserver  301
+/contact  /fr/contact  301
+/blank  /fr  301
+/blank-*  /fr  301
