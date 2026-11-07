@@ -16,6 +16,7 @@ const BookIndex = lazy(() => import('./booking/BookIndex'))
 const BookService = lazy(() => import('./booking/BookService'))
 const CancelBooking = lazy(() => import('./booking/CancelBooking'))
 const Admin = lazy(() => import('./admin/Admin'))
+const DanseOrientale = lazy(() => import('./pages/DanseOrientale'))
 
 const page = (el) => <Suspense fallback={<div className="page-loading" />}>{el}</Suspense>
 
@@ -30,6 +31,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="sully" element={<Sully />} />
         <Route path="cours" element={<Courses />} />
+        <Route path="cours-danse-orientale-perpignan" element={page(<DanseOrientale />)} />
         <Route path="soins" element={<Services />} />
         <Route path="evenements" element={<Events />} />
         {/* "Expérience en ligne" e "Inscription" se integraron en Soins & coaching */}

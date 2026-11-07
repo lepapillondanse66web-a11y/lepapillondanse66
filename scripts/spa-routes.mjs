@@ -15,7 +15,7 @@ const SITE_URL = (process.env.SITE_URL || 'https://www.lepapillondanse66.com').r
 const INDEX = process.env.SEO_INDEX !== 'false'
 const LANGS = ['fr', 'es', 'en', 'ar']
 const DEFAULT_LANG = 'fr'
-const PAGES = ['', 'sully', 'cours', 'soins', 'evenements', 'en-ligne', 'contact', 'inscription',
+const PAGES = ['', 'sully', 'cours', 'cours-danse-orientale-perpignan', 'soins', 'evenements', 'en-ligne', 'contact', 'inscription',
   'reserver', 'reserver/annuler', ...SERVICES.map((s) => `reserver/${s}`)]
 const dist = 'dist'
 

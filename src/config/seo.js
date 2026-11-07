@@ -17,10 +17,11 @@ export const PAGE_TITLES = {
   inscription: ['signup.title', true],
   reserver: ['booking.metaTitle', false],
   'reserver/annuler': ['booking.cancel.metaTitle', false],
+  'cours-danse-orientale-perpignan': ['courses.title', true],
 }
 
 // Páginas que no tienen sentido en Google
-export const NOINDEX = ['reserver/annuler']
+export const NOINDEX = ['reserver/annuler', 'cours-danse-orientale-perpignan']
 
 export function pageTitle(rest, t) {
   const key = rest.startsWith('reserver/') && rest !== 'reserver/annuler' ? 'reserver' : rest

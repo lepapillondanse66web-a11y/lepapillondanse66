@@ -1536,3 +1536,19 @@ p { margin: 0 0 1em; }
   margin-top: 0.6rem; padding: 0.45rem 1.2rem; border-radius: 999px;
   border: 1px solid var(--gold); background: #fffaf2; font-size: 1rem;
 }
+
+/* Página de aterrizaje "Cours de danse orientale à Perpignan" */
+.lp__eyebrow { text-align: center; letter-spacing: .14em; text-transform: uppercase; font-size: .85rem; color: #8a6420; font-weight: 600; margin: 0 0 .4rem; }
+.lp__h2 { font-family: var(--f-display); font-weight: 400; color: var(--purple); font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin: 0 0 .8rem; }
+.lp__intro { display: grid; gap: 1.5rem; align-items: center; max-width: 980px; margin: 2rem auto; }
+@media (min-width: 760px) { .lp__intro { grid-template-columns: 1fr 1.1fr; } }
+.lp__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 22px; box-shadow: 0 10px 30px rgb(118 43 135 / .18); }
+.lp__text p { line-height: 1.6; }
+.lp__list { padding-inline-start: 1.2rem; line-height: 1.8; }
+.lp__list li::marker { color: var(--gold); }
+.lp__faq { max-width: 760px; margin: 2.5rem auto; }
+.lp__q { background: rgb(255 255 255 / .6); border: 1px solid rgb(201 162 74 / .45); border-radius: 14px; padding: .9rem 1.1rem; margin-block: .6rem; }
+.lp__q summary { cursor: pointer; font-weight: 600; color: var(--purple); }
+.lp__q p { margin: .7rem 0 0; line-height: 1.55; }
+.lp__todo { background: #fff3c4; border-radius: 6px; padding: .2rem .4rem; }
+.lp__note { text-align: center; opacity: .9; color: var(--purple); font-size: .9rem; margin-top: 1.5rem; }
