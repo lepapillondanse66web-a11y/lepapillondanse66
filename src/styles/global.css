@@ -609,6 +609,12 @@ p { margin: 0 0 1em; }
   transition: opacity 0.7s ease;
 }
 .welcome--closing { opacity: 0; pointer-events: none; }
+.welcome__lang {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-end: var(--gutter);
+  animation: welcome-in 1.2s ease 0.6s both;
+}
 .welcome__logo {
   width: min(62vw, 340px);
   height: auto;

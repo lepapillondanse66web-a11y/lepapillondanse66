@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { playMusic } from '../lib/music'
 import FlutterLogo from './FlutterLogo'
 import OrnateButton from './OrnateButton'
+import LanguageSwitcher from './LanguageSwitcher'
 
 // Pantalla de bienvenida con el logo. Al tocar "Entrer" se abre la página
 // y arranca la música (ese toque es el permiso que piden los navegadores).
@@ -38,6 +39,10 @@ export default function Welcome() {
       aria-label="Le Papillon Danse 66"
       onKeyDown={(e) => e.key === 'Escape' && enter(false)}
     >
+      {/* Mismo selector y mismo lugar que en el encabezado del sitio */}
+      <div className="welcome__lang">
+        <LanguageSwitcher />
+      </div>
       <FlutterLogo className="welcome__logo" />
       <OrnateButton ref={button} className="welcome__enter" onClick={() => enter(true)}>
         {t('welcome.enter')}
