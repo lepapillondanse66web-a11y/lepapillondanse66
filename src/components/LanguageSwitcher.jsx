@@ -9,6 +9,7 @@ export default function LanguageSwitcher() {
 
   const change = (e) => {
     const next = e.target.value
+    e.target.blur()
     try {
       localStorage.setItem('lang', next)
     } catch {

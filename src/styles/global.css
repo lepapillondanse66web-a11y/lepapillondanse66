@@ -180,6 +180,10 @@ p { margin: 0 0 1em; }
   padding: 0;
 }
 .lang option { color: #222; }
+/* Sin el recuadro de foco al tocarlo (el botón entero ya marca el estado) */
+.lang select:focus { outline: none; }
+.lang:has(select:focus-visible) { box-shadow: 0 0 0 3px rgb(201 162 74 / 0.45); }
+@media (hover: none) { .lang:has(select:focus-visible) { box-shadow: none; } }
 
 /* Menú */
 .nav ul {
