@@ -10,14 +10,15 @@ export default function Schedule() {
   const [error, setError] = useState(null)
 
   const load = useCallback(async () => {
-    const [a, r, b] = await Promise.all([
+    const [a, r, b, c] = await Promise.all([
       supabase.from('availability').select('*').order('weekday').order('start_time'),
       supabase.from('recurring_blocks').select('*').order('weekday').order('start_time'),
       supabase.from('blocks').select('*').gte('ends_at', new Date().toISOString()).order('starts_at'),
+      supabase.from('class_slots').select('*').order('weekday').order('start_time'),
     ])
-    const err = a.error || r.error || b.error
+    const err = a.error || r.error || b.error || c.error
     if (err) setError(errText(err))
-    else setData({ availability: a.data, recurring: r.data, blocks: b.data })
+    else setData({ availability: a.data, recurring: r.data, blocks: b.data, classes: c.data })
   }, [])
 
   useEffect(() => { load() }, [load])
@@ -42,8 +43,17 @@ export default function Schedule() {
       {error && <p className="adm-error">{error}</p>}
 
       <WeeklyTable
+        title="Clases de danza"
+        help="Días y horas de las clases presenciales. Las clases de danza solo se pueden reservar en estos horarios, y varias alumnas pueden reservar la misma clase hasta completar el cupo."
+        withCapacity
+        rows={data.classes}
+        onAdd={(row) => run(supabase.from('class_slots').insert(row))}
+        onDelete={(id) => run(supabase.from('class_slots').delete().eq('id', id))}
+      />
+
+      <WeeklyTable
         title="Horario de atención"
-        help="Cuándo se puede reservar cada día de la semana. Podés poner más de un tramo por día (por ejemplo 9–13 y 15–17)."
+        help="Cuándo se pueden reservar las sesiones individuales (tarot, coaching, llamada…). Podés poner más de un tramo por día (por ejemplo 9–13 y 15–17)."
         rows={data.availability}
         onAdd={(row) => run(supabase.from('availability').insert(row))}
         onDelete={(id) => run(supabase.from('availability').delete().eq('id', id))}
@@ -67,12 +77,13 @@ export default function Schedule() {
   )
 }
 
-function WeeklyTable({ title, help, rows, onAdd, onDelete, withLabel = false }) {
+function WeeklyTable({ title, help, rows, onAdd, onDelete, withLabel = false, withCapacity = false }) {
   function add(e) {
     e.preventDefault()
     const v = Object.fromEntries(new FormData(e.currentTarget))
     const row = { weekday: Number(v.weekday), start_time: v.start, end_time: v.end }
     if (withLabel) row.label = v.label || null
+    if (withCapacity) row.capacity = Number(v.capacity) || 12
     onAdd(row)
     e.currentTarget.reset()
   }
@@ -90,7 +101,7 @@ function WeeklyTable({ title, help, rows, onAdd, onDelete, withLabel = false }) 
                 {day.length === 0 && <span className="adm-muted">—</span>}
                 {day.map((r) => (
                   <span key={r.id} className="adm-chip">
-                    {hhmm(r.start_time)}–{hhmm(r.end_time)}{r.label ? ` · ${r.label}` : ''}
+                    {hhmm(r.start_time)}–{hhmm(r.end_time)}{r.label ? ` · ${r.label}` : ''}{withCapacity ? ` · ${r.capacity} lugares` : ''}
                     <button aria-label="Quitar" onClick={() => confirm('¿Quitar este horario?') && onDelete(r.id)}>×</button>
                   </span>
                 ))}
@@ -105,6 +116,7 @@ function WeeklyTable({ title, help, rows, onAdd, onDelete, withLabel = false }) 
         <span>a</span>
         <input name="end" type="time" required aria-label="Hasta" />
         {withLabel && <input name="label" placeholder="Qué es (opcional)" />}
+        {withCapacity && <label>Cupo <input name="capacity" type="number" min="1" max="200" defaultValue="12" style={{ width: '4.5em' }} /></label>}
         <button className="adm-btn">Agregar</button>
       </form>
     </div>

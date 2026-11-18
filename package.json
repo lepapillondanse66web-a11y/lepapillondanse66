@@ -9,7 +9,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "images": "node scripts/download-images.mjs",
-    "test:db": "node supabase/tests/agenda.test.mjs"
+    "test:db": "node supabase/tests/agenda.test.mjs && node supabase/tests/clases.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
