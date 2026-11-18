@@ -16,9 +16,10 @@ export default function Schedule() {
       supabase.from('blocks').select('*').gte('ends_at', new Date().toISOString()).order('starts_at'),
       supabase.from('class_slots').select('*').order('weekday').order('start_time'),
     ])
-    const err = a.error || r.error || b.error || c.error
+    // class_slots puede no existir todavía si falta correr la migración de clases
+    const err = a.error || r.error || b.error
     if (err) setError(errText(err))
-    else setData({ availability: a.data, recurring: r.data, blocks: b.data, classes: c.data })
+    else setData({ availability: a.data, recurring: r.data, blocks: b.data, classes: c.error ? null : c.data })
   }, [])
 
   useEffect(() => { load() }, [load])
@@ -42,14 +43,14 @@ export default function Schedule() {
       </p>
       {error && <p className="adm-error">{error}</p>}
 
-      <WeeklyTable
+      {data.classes && <WeeklyTable
         title="Clases de danza"
         help="Días y horas de las clases presenciales. Las clases de danza solo se pueden reservar en estos horarios, y varias alumnas pueden reservar la misma clase hasta completar el cupo."
         withCapacity
         rows={data.classes}
         onAdd={(row) => run(supabase.from('class_slots').insert(row))}
         onDelete={(id) => run(supabase.from('class_slots').delete().eq('id', id))}
-      />
+      />}
 
       <WeeklyTable
         title="Horario de atención"
