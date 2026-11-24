@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { playMusic } from '../lib/music'
 import FlutterLogo from './FlutterLogo'
 import OrnateButton from './OrnateButton'
+import LanguageSwitcher from './LanguageSwitcher'
 
 // Pantalla de bienvenida con el logo. Al tocar "Entrer" se abre la página
 // y arranca la música (ese toque es el permiso que piden los navegadores).
@@ -38,12 +39,21 @@ export default function Welcome() {
       aria-label="Le Papillon Danse 66"
       onKeyDown={(e) => e.key === 'Escape' && enter(false)}
     >
+      {/* Mismo selector y mismo lugar que en el encabezado del sitio */}
+      <div className="welcome__lang">
+        <LanguageSwitcher />
+      </div>
       <FlutterLogo className="welcome__logo" />
       <OrnateButton ref={button} className="welcome__enter" onClick={() => enter(true)}>
         {t('welcome.enter')}
       </OrnateButton>
-      <button className="welcome__silent" onClick={() => enter(false)}>
-        {t('welcome.enterSilent')}
+      <button type="button" className="welcome__silent" onClick={() => enter(false)}>
+        {/* Parlante en silencio */}
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M16 9.5l5 5M21 9.5l-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <span>{t('welcome.enterSilent')}</span>
       </button>
     </div>
   )

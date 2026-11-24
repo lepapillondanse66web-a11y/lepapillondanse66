@@ -1,3 +1,4 @@
+import { NOINDEX, pageTitle } from '../config/seo'
 import { useEffect } from 'react'
 import { Navigate, Outlet, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -47,9 +48,10 @@ export default function LangLayout() {
     <>
       <Helmet>
         <html lang={lang} dir={getDir(lang)} />
-        <title>{t('meta.title')}</title>
+        <title>{pageTitle(rest, t)}</title>
         <meta name="description" content={t('meta.description')} />
-        <meta property="og:title" content={t('meta.title')} />
+        <meta property="og:title" content={pageTitle(rest, t)} />
+        {NOINDEX.includes(rest) && <meta name="robots" content="noindex" />}
         <meta property="og:description" content={t('meta.description')} />
         <meta property="og:locale" content={lang} />
         <link rel="canonical" href={urlFor(lang)} />
@@ -58,7 +60,8 @@ export default function LangLayout() {
         ))}
         <link rel="alternate" hrefLang="x-default" href={urlFor(DEFAULT_LANG)} />
       </Helmet>
-      <Welcome />
+      {/* Las páginas de reserva (y el link de cancelar del email) abren directo */}
+      {!rest.startsWith('reserver') && <Welcome />}
       <Header full={!rest} />
       <main id="main">
         {/* key = página sin el idioma: al cambiar de página hay fundido,

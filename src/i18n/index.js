@@ -21,7 +21,12 @@ export const getDir = (code) =>
   LANGUAGES.find((l) => l.code === code)?.dir ?? 'ltr'
 
 // Idioma del navegador en la primera visita (solo si lo soportamos)
+// Los buscadores (Googlebot, Bing…) siempre van al francés: es el idioma del
+// negocio, y si no Google indexa la portada en inglés (su navegador está en inglés)
+const BOT = /bot|crawl|spider|slurp|lighthouse|facebookexternalhit|whatsapp/i
+
 export const detectLanguage = () => {
+  if (typeof navigator !== 'undefined' && BOT.test(navigator.userAgent)) return DEFAULT_LANG
   try {
     const saved = localStorage.getItem('lang')
     if (saved && isSupported(saved)) return saved

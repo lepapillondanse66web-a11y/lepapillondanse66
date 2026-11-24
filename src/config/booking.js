@@ -1,4 +1,7 @@
-// Reservas (Setmore) y pagos (PayPal).
+// Reservas y pagos (PayPal).
+// Si están configuradas las variables de Supabase (VITE_SUPABASE_URL y
+// VITE_SUPABASE_ANON_KEY) se usa el sistema de reservas propio (/reserver).
+// Si no, los botones siguen llevando a Setmore como antes.
 // Datos tomados de la página de Setmore de Sully el 29/10/2026.
 // Si cambia un precio o una duración en Setmore, actualizarlo también acá.
 
@@ -31,15 +34,16 @@ export const SERVICES = {
       url: service('aad8c50e-880d-41b4-b4ad-55c266877270') },
   ],
   care: [
-    { key: 'tarot', price: 40, minutes: 30,
+    { key: 'tarot', price: 40, minutes: 30, online: true,
       url: service('10777997-582f-45e1-a4b9-ba9c467cf62a') },
-    { key: 'pendulum', price: 50, minutes: 30,
+    { key: 'pendulum', price: 50, minutes: 30, online: true,
       url: service('20559047-0e36-4fda-b407-79f6eacdafdd') },
-    { key: 'akashic', price: 100, minutes: 60,
+    { key: 'akashic', price: 100, minutes: 60, online: true,
       url: service('0d75eb70-1b0c-4f08-b636-9d3b9d7105d9') },
-    { key: 'spiritualCoaching', price: 150, minutes: 60,
+    // Paquetes: price es el total; sessions = cantidad de sesiones
+    { key: 'spiritualCoaching', price: 150, minutes: 60, sessions: 4, online: true,
       url: service('33f40fa8-41c8-4583-a9a2-18ac7960dcf8') },
-    { key: 'empowerment', price: 300, minutes: 60, online: true,
+    { key: 'empowerment', price: 300, minutes: 60, sessions: 6, online: true,
       url: service('c656fc65-d817-4b81-a758-a08360ef7306') },
   ],
 }
@@ -50,3 +54,21 @@ export const COURSE_SERVICES = ['intuitiveDance', 'orientalIntuitive', 'pilatesO
 
 export const findService = (key) =>
   [...SERVICES.dance, ...SERVICES.care].find((s) => s.key === key)
+
+// ---------------------------------------------------------------------------
+// Sistema de reservas propio
+// ---------------------------------------------------------------------------
+export const BOOKING_ENABLED = Boolean(
+  import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY,
+)
+
+// Zona horaria de la agenda de Sully
+export const TIMEZONE = 'Europe/Paris'
+
+// A dónde lleva "Réserver": página propia o Setmore.
+// key: clave del servicio ('tarot', 'call'…) o vacío para ver todos.
+export function bookingHref(lang, key) {
+  if (BOOKING_ENABLED) return key ? `/${lang}/reserver/${key}` : `/${lang}/reserver`
+  if (key === 'call') return BOOKING.call
+  return findService(key)?.url ?? BOOKING.all
+}

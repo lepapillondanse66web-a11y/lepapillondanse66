@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { BOOKING } from '../config/booking'
+import BookLink from './BookLink'
 import LanguageSwitcher from './LanguageSwitcher'
 import MusicButton from './MusicButton'
 import FlutterLogo from './FlutterLogo'
@@ -44,7 +44,22 @@ export default function Header({ full = false }) {
 
       {full && (
         <h1 className="header__title">
-          {lines.map((l) => <span key={l}>{l}</span>)}
+          {lines.map((l) => {
+            const items = l.split(/\s*[–—]\s*/)
+            return (
+              <span key={l} className="header__line">
+                {items.map((w, i) => (
+                  <Fragment key={w}>
+                    {i > 0 && ' '}
+                    <span className="header__item">
+                      {w}
+                      {i < items.length - 1 && <span className="header__dot" aria-hidden="true">·</span>}
+                    </span>
+                  </Fragment>
+                ))}
+              </span>
+            )
+          })}
         </h1>
       )}
 
@@ -67,9 +82,9 @@ export default function Header({ full = false }) {
             </li>
           ))}
           <li>
-            <OrnateButton as="a" size="sm" className="ornate--book" href={BOOKING.all} target="_blank" rel="noopener">
+            <BookLink size="sm" className="ornate--book">
               {t('nav.book')}
-            </OrnateButton>
+            </BookLink>
           </li>
         </ul>
       </nav>
