@@ -327,6 +327,9 @@ p { margin: 0 0 1em; }
 /* Fotos con fondo blanco: el blanco toma el color del fondo */
 .img-blend { mix-blend-mode: multiply; }
 
+/* El halo de .about__text sobresale 10% por cada lado: en una sola columna
+   se salía de la pantalla y creaba scroll horizontal (muy visible en árabe). */
+.block:has(> .about) { overflow-x: clip; }
 .about__img {
   width: 100%;
   max-height: 760px;
