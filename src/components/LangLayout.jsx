@@ -1,5 +1,5 @@
 import { NOINDEX, pageTitle } from '../config/seo'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { Navigate, Outlet, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
@@ -17,7 +17,9 @@ export default function LangLayout() {
 
   const valid = isSupported(lang)
 
-  useEffect(() => {
+  // Antes de pintar (useLayoutEffect): cambia el idioma sin parpadeo y sin
+  // actualizar otros componentes mientras este se está dibujando
+  useLayoutEffect(() => {
     if (!valid) return
     if (i18n.language !== lang) i18n.changeLanguage(lang)
     document.documentElement.lang = lang
@@ -39,7 +41,6 @@ export default function LangLayout() {
   useReveal(pathname)
 
   if (!valid) return <Navigate to={`/${DEFAULT_LANG}`} replace />
-  if (i18n.language !== lang) i18n.changeLanguage(lang)
 
   const rest = pathname.split('/').slice(2).join('/')
   const urlFor = (code) => `${SITE.url}/${code}${rest ? `/${rest}` : ''}`
