@@ -11,18 +11,20 @@ import LanguageSwitcher from './LanguageSwitcher'
 export default function Welcome() {
   const { t } = useTranslation()
   const [state, setState] = useState('open') // open | closing | closed
-  // La intro de la mariposa se ve la primera vez; si vuelve a entrar en la
-  // misma visita (otra pestaña, recargar), la bienvenida aparece directo
+  // La intro de la mariposa se ve en las primeras 3 cargas de la visita
+  // (entrar y recargar); después la bienvenida aparece directo
+  const INTRO_VECES = 3
   const [intro] = useState(() => {
     try {
-      return !sessionStorage.getItem('papillon-intro')
+      return Number(sessionStorage.getItem('papillon-intro') || 0) < INTRO_VECES
     } catch {
       return true
     }
   })
   useEffect(() => {
     try {
-      sessionStorage.setItem('papillon-intro', '1')
+      const n = Number(sessionStorage.getItem('papillon-intro') || 0)
+      sessionStorage.setItem('papillon-intro', String(n + 1))
     } catch {
       /* sin almacenamiento: se ve la intro siempre */
     }
