@@ -1661,9 +1661,9 @@ p { margin: 0 0 1em; }
 
 /* ---------- Intro de bienvenida: la mariposa llega volando y se posa ----------
    1) Un velo lila cubre el cielo y se disuelve.
-   2) La mariposa entra desde abajo a la izquierda, da una vuelta y se posa
-      justo donde va en el logo (las alas aletean rápido mientras vuela).
-   3) Mientras vuela, el logo aparece suave, como saliendo de la bruma.
+   2) La mariposa entra desde abajo a la izquierda en una curva fluida y se
+      posa justo donde va en el logo (aletea rápido mientras vuela).
+   3) Cuando ya se posó, el resto del logo aparece suave, desde la bruma.
    4) Recién al final aparecen los botones. */
 .flutter__fly { position: absolute; inset: 0; pointer-events: none; }
 /* El cuerpo de la mariposa sale de la capa "frente": en la intro vuela con las
@@ -1684,37 +1684,26 @@ p { margin: 0 0 1em; }
     animation: intro-veil 2.8s cubic-bezier(0.45, 0, 0.25, 1) 0.2s both;
     pointer-events: none;
   }
-  .welcome--intro .welcome__logo { animation: float 6s ease-in-out 4.6s infinite; }
+  .welcome--intro .welcome__logo { animation: float 6s ease-in-out 5s infinite; }
+  /* El logo aparece recién cuando la mariposa ya se posó (a los 3,4 s) */
   .flutter--intro .flutter__base,
-  .flutter--intro .flutter__front { animation: intro-logo 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) 1.5s both; }
-  .flutter--intro .flutter__fly {
-    transform-origin: 49% 18%;
-    animation: intro-fly 3.6s ease-in-out 0.3s both;
-  }
+  .flutter--intro .flutter__front { animation: intro-logo 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) 3.2s both; }
+  /* El vuelo lo anima FlutterLogo.jsx con una curva calculada */
+  .flutter--intro .flutter__fly { transform-origin: 49% 18%; }
   .flutter--intro .flutter__wing--l {
-    animation: intro-flap-l 0.3s ease-in-out 0.3s 12 alternate, flap-l 3.4s ease-in-out 4s infinite;
+    animation: intro-flap-l 0.2s ease-in-out 0.2s 16 alternate, flap-l 3.4s ease-in-out 3.4s infinite;
   }
   .flutter--intro .flutter__wing--r {
-    animation: intro-flap-r 0.3s ease-in-out 0.3s 12 alternate, flap-r 3.4s ease-in-out 4s infinite;
+    animation: intro-flap-r 0.2s ease-in-out 0.2s 16 alternate, flap-r 3.4s ease-in-out 3.4s infinite;
   }
-  .welcome--intro .welcome__enter { animation-delay: 3.6s; }
-  .welcome--intro .welcome__lang { animation-delay: 3.9s; }
-  .welcome--intro .welcome__silent { animation-delay: 4.1s; }
+  .welcome--intro .welcome__enter { animation-delay: 4.3s; }
+  .welcome--intro .welcome__lang { animation-delay: 4.6s; }
+  .welcome--intro .welcome__silent { animation-delay: 4.8s; }
 }
 @keyframes intro-veil { to { opacity: 0; } }
 @keyframes intro-logo {
   from { opacity: 0; filter: blur(8px); scale: 0.96; }
   to { opacity: 1; filter: blur(0); scale: 1; }
-}
-/* Recorrido: abajo a la izquierda → cruza hacia arriba a la derecha → vuelve
-   en curva y se posa. Cada tramo frena y arranca, como una mariposa real. */
-@keyframes intro-fly {
-  0% { opacity: 0; transform: translate(-48vw, 52vh) rotate(-28deg) scale(0.42); filter: drop-shadow(0 0 14px rgb(255 228 170 / 0.9)); }
-  8% { opacity: 1; }
-  32% { transform: translate(-26vw, 8vh) rotate(-12deg) scale(0.5); }
-  56% { transform: translate(22vw, -14vh) rotate(16deg) scale(0.58); }
-  80% { transform: translate(10vw, 10vh) rotate(-10deg) scale(0.78); filter: drop-shadow(0 0 14px rgb(255 228 170 / 0.8)); }
-  100% { opacity: 1; transform: none; filter: drop-shadow(0 0 0 rgb(255 228 170 / 0)); }
 }
 /* Aleteo rápido de vuelo: el ala se pliega hacia el cuerpo y se abre */
 @keyframes intro-flap-l { to { transform: scaleX(0.28); } }
