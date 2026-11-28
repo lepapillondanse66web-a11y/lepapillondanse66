@@ -1565,3 +1565,32 @@ p { margin: 0 0 1em; }
 .lp__q p { margin: .7rem 0 0; line-height: 1.55; }
 .lp__todo { background: #fff3c4; border-radius: 6px; padding: .2rem .4rem; }
 .lp__note { text-align: center; opacity: .9; color: var(--purple); font-size: .9rem; margin-top: 1.5rem; }
+
+/* ==========================================================================
+   Retoques de estética (revisión de diseño, nov. 2026)
+   ========================================================================== */
+/* 1. Títulos: sin negrita falsa, más espaciado, filete dorado con gema */
+.block__title, .closing__title { font-weight: 400 !important; letter-spacing: .07em; text-wrap: balance; }
+@media (min-width: 821px) { .block__title { font-size: clamp(2.1rem, 3.1vw, 4.4rem) !important; } }
+.block__title::after {
+  content: ''; display: block; width: min(380px, 70%); height: 20px; margin: .5em auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 14'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='260' y2='0'%3E%3Cstop offset='0' stop-color='%23c9a24a' stop-opacity='0'/%3E%3Cstop offset='.25' stop-color='%23c9a24a'/%3E%3Cstop offset='.75' stop-color='%23c9a24a'/%3E%3Cstop offset='1' stop-color='%23c9a24a' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='t' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%237ee6dd'/%3E%3Cstop offset='1' stop-color='%2312807a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 7H112M148 7H260' stroke='url(%23g)' stroke-width='2'/%3E%3Cpath d='M130 1l6 6-6 6-6-6z' fill='url(%23t)' stroke='%23c9a24a' stroke-width='1'/%3E%3Ccircle cx='117' cy='7' r='1.6' fill='%23c9a24a'/%3E%3Ccircle cx='143' cy='7' r='1.6' fill='%23c9a24a'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+/* 2. Menú de escritorio: texto sobre una franja marfil (se lee sobre el cielo y el mar); el dorado queda para Réserver */
+@media (min-width: 761px) {
+  .nav ul { width: fit-content; margin-inline: auto; padding: .3em 1.1em; gap: .2em .3em !important; align-items: center;
+    background: rgb(255 248 240 / .72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    border: 1px solid rgb(201 162 74 / .7); border-radius: 999px; box-shadow: 0 6px 22px rgb(94 31 110 / .12); }
+  .nav li > .ornate:not(.ornate--book) { background: none !important; box-shadow: none !important; border-color: transparent !important; padding: .35em .75em !important; transform: none !important; font-weight: 700 !important; color: #5e1f6e !important; letter-spacing: .02em; }
+  .nav li > .ornate:not(.ornate--book)::after { display: none; }
+  .nav li + li > .ornate:not(.ornate--book)::before, .nav li:last-child::before { content: ''; position: absolute; inset-inline-start: -4px; top: 50%; width: 5px; height: 5px; rotate: 45deg; background: #c9a24a; translate: 0 -50%; }
+  .nav li > .ornate:not(.ornate--book) .ornate__label { background: linear-gradient(#c9a24a, #c9a24a) center bottom / 0 1px no-repeat; transition: background-size .35s ease; padding-bottom: 2px; }
+  .nav li > .ornate:not(.ornate--book):hover .ornate__label, .nav li > .ornate.active .ornate__label { background-size: 100% 1px; }
+  .nav li:last-child { position: relative; margin-inline-start: .5em; }
+  .nav li:last-child::before { inset-inline-start: -.55em; }
+}
+/* 3. Filosofía: el texto en un pergamino marfil para que se lea */
+.philo__text { background: rgb(255 248 240 / .82); border: 1px solid rgb(214 168 79 / .55); border-radius: 26px; padding: clamp(1.4rem, 3vw, 2.6rem) clamp(1.3rem, 3vw, 2.8rem) !important; box-shadow: 0 10px 30px rgb(118 43 135 / .12); text-shadow: none !important; align-self: center; }
+/* 4. Etiquetas legibles */
+.tag { font-size: .9rem !important; padding: .2em .8em !important; }
+.tag--gem { color: #0b5753 !important; background: rgb(34 185 177 / .16) !important; }
