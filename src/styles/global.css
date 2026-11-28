@@ -1594,3 +1594,17 @@ p { margin: 0 0 1em; }
 /* 4. Etiquetas legibles */
 .tag { font-size: .9rem !important; padding: .2em .8em !important; }
 .tag--gem { color: #0b5753 !important; background: rgb(34 185 177 / .16) !important; }
+/* 5. Filosofía: el fondo morado ocupa todo el ancho (sin el óvalo) y se
+   funde arriba y abajo con el lila de la sección */
+.block:has(> .philo) { overflow-x: clip; }
+.philo::before {
+  inset-inline: calc(50% - 50vw);
+  inset-block: -4rem;
+  border-radius: 0;
+  background:
+    linear-gradient(rgb(216 188 236 / 0.55), rgb(216 188 236 / 0.55)),
+    var(--philo-bg, none) center / contain no-repeat,
+    rgb(120 84 172);
+  -webkit-mask-image: linear-gradient(transparent, #000 4rem, #000 calc(100% - 4rem), transparent);
+          mask-image: linear-gradient(transparent, #000 4rem, #000 calc(100% - 4rem), transparent);
+}

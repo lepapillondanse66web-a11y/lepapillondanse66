@@ -42,7 +42,7 @@ export const IMAGES = {
   portrait: '/images/sully-portrait.jpg',
   sky: '/images/sky.jpg',
   about: '/images/about.jpg',
-  philosophyBg: '/images/philosophy-bg.jpg',
+  philosophyBg: '/images/philosophy-bg-full.jpg',
   sully: '/images/sully.jpg',
   courses: [
     '/images/course-intuitive.jpg',
