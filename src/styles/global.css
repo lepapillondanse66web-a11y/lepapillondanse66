@@ -1174,32 +1174,32 @@ p { margin: 0 0 1em; }
 /* Aleteo lento y continuo (curva seno): sin frenadas entre tramos */
 @keyframes flap-l {
   0.0% { rotate: 0.00deg; }
-  8.33% { rotate: 1.85deg; }
-  16.67% { rotate: 3.41deg; }
-  25.0% { rotate: 4.25deg; }
-  33.33% { rotate: 4.16deg; }
-  41.67% { rotate: 3.15deg; }
-  50.0% { rotate: 1.50deg; }
-  58.33% { rotate: -0.35deg; }
-  66.67% { rotate: -1.91deg; }
-  75.0% { rotate: -2.75deg; }
-  83.33% { rotate: -2.66deg; }
-  91.67% { rotate: -1.65deg; }
+  8.33% { rotate: 1.58deg; }
+  16.67% { rotate: 2.90deg; }
+  25.0% { rotate: 3.60deg; }
+  33.33% { rotate: 3.50deg; }
+  41.67% { rotate: 2.62deg; }
+  50.0% { rotate: 1.20deg; }
+  58.33% { rotate: -0.38deg; }
+  66.67% { rotate: -1.70deg; }
+  75.0% { rotate: -2.40deg; }
+  83.33% { rotate: -2.30deg; }
+  91.67% { rotate: -1.42deg; }
   100.0% { rotate: -0.00deg; }
 }
 @keyframes flap-r {
   0.0% { rotate: -0.00deg; }
-  8.33% { rotate: -1.85deg; }
-  16.67% { rotate: -3.41deg; }
-  25.0% { rotate: -4.25deg; }
-  33.33% { rotate: -4.16deg; }
-  41.67% { rotate: -3.15deg; }
-  50.0% { rotate: -1.50deg; }
-  58.33% { rotate: 0.35deg; }
-  66.67% { rotate: 1.91deg; }
-  75.0% { rotate: 2.75deg; }
-  83.33% { rotate: 2.66deg; }
-  91.67% { rotate: 1.65deg; }
+  8.33% { rotate: -1.58deg; }
+  16.67% { rotate: -2.90deg; }
+  25.0% { rotate: -3.60deg; }
+  33.33% { rotate: -3.50deg; }
+  41.67% { rotate: -2.62deg; }
+  50.0% { rotate: -1.20deg; }
+  58.33% { rotate: 0.38deg; }
+  66.67% { rotate: 1.70deg; }
+  75.0% { rotate: 2.40deg; }
+  83.33% { rotate: 2.30deg; }
+  91.67% { rotate: 1.42deg; }
   100.0% { rotate: 0.00deg; }
 }
 
