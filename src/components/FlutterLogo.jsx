@@ -81,6 +81,9 @@ export default function FlutterLogo({ className = '', alt = 'Le Papillon Danse',
       <span className="flutter__fly" ref={fly}>
         <img className="flutter__layer flutter__wing flutter__wing--l" src={IMAGES.logoLayers.wingL} alt="" />
         <img className="flutter__layer flutter__wing flutter__wing--r" src={IMAGES.logoLayers.wingR} alt="" />
+        {intro && (
+          <img className="flutter__layer flutter__wing flutter__wing--r flutter__wing--full" src={IMAGES.logoLayers.wingRFull} alt="" />
+        )}
         <img className="flutter__layer" src={IMAGES.logoLayers.antennae} alt="" />
         {intro && <img className="flutter__layer flutter__body" src={IMAGES.logoLayers.front} alt="" />}
       </span>

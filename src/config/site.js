@@ -37,6 +37,8 @@ export const IMAGES = {
     base: '/images/logo-base.png?v=5',
     wingL: '/images/logo-wing-l.png?v=5',
     wingR: '/images/logo-wing-r.png?v=5',
+    // Ala derecha completa (la parte que tapa el brazo, copiada del ala izquierda en espejo): solo para el vuelo de la intro
+    wingRFull: '/images/logo-wing-r-full.png?v=5',
     front: '/images/logo-front.png?v=5',
     antennae: '/images/logo-antennae.png?v=5',
   },

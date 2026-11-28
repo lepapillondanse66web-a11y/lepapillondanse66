@@ -1686,6 +1686,7 @@ p { margin: 0 0 1em; }
    3) Cuando ya se posó, el resto del logo aparece suave, desde la bruma.
    4) Recién al final aparecen los botones. */
 .flutter__fly { position: absolute; inset: 0; pointer-events: none; }
+.flutter__wing--full { display: none; }
 /* El cuerpo de la mariposa sale de la capa "frente": en la intro vuela con las
    alas, y a la capa frente se le hace un hueco en ese lugar para no duplicarlo */
 .flutter__body { clip-path: inset(12.8% 48.2% 73.5% 46.4%); }
@@ -1714,7 +1715,15 @@ p { margin: 0 0 1em; }
     animation: intro-flap-l 0.2s ease-in-out 0.2s 16 alternate, flap-l 3.4s linear 3.4s infinite;
   }
   .flutter--intro .flutter__wing--r {
-    animation: intro-flap-r 0.2s ease-in-out 0.2s 16 alternate, flap-r 3.4s linear 3.4s infinite;
+    animation: intro-flap-r 0.2s ease-in-out 0.2s 16 alternate, flap-r 3.4s linear 3.4s infinite,
+      intro-wing-in 0.7s ease 4.3s both;
+  }
+  /* Mientras vuela, el ala derecha va completa; cuando el brazo de la
+     bailarina ya apareció, se funde con el ala original (que el brazo tapa) */
+  .flutter--intro .flutter__wing--full {
+    display: block;
+    animation: intro-flap-r 0.2s ease-in-out 0.2s 16 alternate, flap-r 3.4s linear 3.4s infinite,
+      intro-wing-out 0.7s ease 4.3s both;
   }
   .welcome--intro .welcome__enter { animation-delay: 4.3s; }
   .welcome--intro .welcome__lang { animation-delay: 4.6s; }
@@ -1727,6 +1736,8 @@ p { margin: 0 0 1em; }
 }
 /* Aleteo rápido de vuelo: el ala se pliega hacia el cuerpo y se abre */
 @keyframes intro-flap-l { to { transform: scaleX(0.28); } }
+@keyframes intro-wing-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes intro-wing-out { from { opacity: 1; } to { opacity: 0; } }
 @keyframes intro-flap-r { to { transform: scaleX(0.28); } }
 /* Aparición suave de los elementos de la bienvenida (faltaba definirla) */
 @keyframes welcome-in {
