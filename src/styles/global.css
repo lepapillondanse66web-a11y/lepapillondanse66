@@ -1636,3 +1636,25 @@ p { margin: 0 0 1em; }
       rgb(120 84 172);
   }
 }
+/* 7. Cursos sobre el mar: el mismo resplandor suave de "L'Association"
+   detrás del título y del texto (sin recuadro, se funde con el fondo) */
+.course__title,
+.course__body {
+  position: relative;
+  isolation: isolate;
+  text-shadow: 0 0 14px rgb(255 245 250 / 0.95), 0 0 3px rgb(255 245 250 / 0.85);
+}
+.course__title::before,
+.course__body::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -35% -12%;
+  background: radial-gradient(ellipse at center, rgb(255 244 250 / 0.62), rgb(255 244 250 / 0.38) 50%, transparent 75%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #000 40%, transparent 72%);
+  pointer-events: none;
+}
+.course__body .ornate { text-shadow: none; }
