@@ -33,7 +33,7 @@ export default function Welcome() {
 
   return (
     <div
-      className={`welcome sky ${state === 'closing' ? 'welcome--closing' : ''}`}
+      className={`welcome welcome--intro sky ${state === 'closing' ? 'welcome--closing' : ''}`}
       role="dialog"
       aria-modal="true"
       aria-label="Le Papillon Danse 66"
@@ -43,7 +43,7 @@ export default function Welcome() {
       <div className="welcome__lang">
         <LanguageSwitcher />
       </div>
-      <FlutterLogo className="welcome__logo" />
+      <FlutterLogo className="welcome__logo" intro />
       <OrnateButton ref={button} className="welcome__enter" onClick={() => enter(true)}>
         {t('welcome.enter')}
       </OrnateButton>
