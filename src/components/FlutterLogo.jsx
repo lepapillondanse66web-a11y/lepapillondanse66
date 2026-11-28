@@ -77,10 +77,11 @@ export default function FlutterLogo({ className = '', alt = 'Le Papillon Danse',
   return (
     <span className={`flutter ${intro ? 'flutter--intro' : ''} ${className}`} role="img" aria-label={alt}>
       <img className="flutter__base" src={IMAGES.logoLayers.base} alt="" width="591" height="751" />
-      {/* La mariposa: las dos alas (y en la intro, el cuerpo) se mueven juntas */}
+      {/* La mariposa: alas, antenas con la cabeza (y en la intro, el cuerpo) se mueven juntas */}
       <span className="flutter__fly" ref={fly}>
         <img className="flutter__layer flutter__wing flutter__wing--l" src={IMAGES.logoLayers.wingL} alt="" />
         <img className="flutter__layer flutter__wing flutter__wing--r" src={IMAGES.logoLayers.wingR} alt="" />
+        <img className="flutter__layer" src={IMAGES.logoLayers.antennae} alt="" />
         {intro && <img className="flutter__layer flutter__body" src={IMAGES.logoLayers.front} alt="" />}
       </span>
       <img className="flutter__layer flutter__front" src={IMAGES.logoLayers.front} alt="" />

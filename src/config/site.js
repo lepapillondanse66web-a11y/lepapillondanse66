@@ -34,10 +34,11 @@ export const IMAGES = {
   // Capas del logo para animar las alas (ver FlutterLogo)
   // ?v=N: subir el número cada vez que cambian las capas, así el navegador no usa las viejas
   logoLayers: {
-    base: '/images/logo-base.png?v=4',
-    wingL: '/images/logo-wing-l.png?v=4',
-    wingR: '/images/logo-wing-r.png?v=4',
-    front: '/images/logo-front.png?v=4',
+    base: '/images/logo-base.png?v=5',
+    wingL: '/images/logo-wing-l.png?v=5',
+    wingR: '/images/logo-wing-r.png?v=5',
+    front: '/images/logo-front.png?v=5',
+    antennae: '/images/logo-antennae.png?v=5',
   },
   // Retrato de Sully recortado del afiche (página de terapias)
   portrait: '/images/sully-portrait.jpg',
