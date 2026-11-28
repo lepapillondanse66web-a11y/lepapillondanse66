@@ -1169,18 +1169,38 @@ p { margin: 0 0 1em; }
 .flutter img { display: block; width: 100%; height: auto; }
 .flutter__layer { position: absolute; inset: 0; height: 100% !important; pointer-events: none; }
 /* El eje de cada ala es donde se une al cuerpo */
-.flutter__wing--l { transform-origin: 47.9% 20%; animation: flap-l 3.4s ease-in-out infinite; }
-.flutter__wing--r { transform-origin: 50.3% 20%; animation: flap-r 3.4s ease-in-out infinite; }
-/* Suben un poco, bajan un poco y vuelven: un aleteo lento y suave */
+.flutter__wing--l { transform-origin: 47.9% 20%; animation: flap-l 3.4s linear infinite; will-change: rotate, transform; }
+.flutter__wing--r { transform-origin: 50.3% 20%; animation: flap-r 3.4s linear infinite; will-change: rotate, transform; }
+/* Aleteo lento y continuo (curva seno): sin frenadas entre tramos */
 @keyframes flap-l {
-  0%, 100% { rotate: 0deg; }
-  35% { rotate: 5deg; }
-  70% { rotate: -2.5deg; }
+  0.0% { rotate: 0.00deg; }
+  8.33% { rotate: 1.85deg; }
+  16.67% { rotate: 3.41deg; }
+  25.0% { rotate: 4.25deg; }
+  33.33% { rotate: 4.16deg; }
+  41.67% { rotate: 3.15deg; }
+  50.0% { rotate: 1.50deg; }
+  58.33% { rotate: -0.35deg; }
+  66.67% { rotate: -1.91deg; }
+  75.0% { rotate: -2.75deg; }
+  83.33% { rotate: -2.66deg; }
+  91.67% { rotate: -1.65deg; }
+  100.0% { rotate: -0.00deg; }
 }
 @keyframes flap-r {
-  0%, 100% { rotate: 0deg; }
-  35% { rotate: -5deg; }
-  70% { rotate: 2.5deg; }
+  0.0% { rotate: -0.00deg; }
+  8.33% { rotate: -1.85deg; }
+  16.67% { rotate: -3.41deg; }
+  25.0% { rotate: -4.25deg; }
+  33.33% { rotate: -4.16deg; }
+  41.67% { rotate: -3.15deg; }
+  50.0% { rotate: -1.50deg; }
+  58.33% { rotate: 0.35deg; }
+  66.67% { rotate: 1.91deg; }
+  75.0% { rotate: 2.75deg; }
+  83.33% { rotate: 2.66deg; }
+  91.67% { rotate: 1.65deg; }
+  100.0% { rotate: 0.00deg; }
 }
 
 /* ---------- Méthode Mariposa: las tres etapas ---------- */
@@ -1691,10 +1711,10 @@ p { margin: 0 0 1em; }
   /* El vuelo lo anima FlutterLogo.jsx con una curva calculada */
   .flutter--intro .flutter__fly { transform-origin: 49% 18%; }
   .flutter--intro .flutter__wing--l {
-    animation: intro-flap-l 0.2s ease-in-out 0.2s 16 alternate, flap-l 3.4s ease-in-out 3.4s infinite;
+    animation: intro-flap-l 0.2s ease-in-out 0.2s 16 alternate, flap-l 3.4s linear 3.4s infinite;
   }
   .flutter--intro .flutter__wing--r {
-    animation: intro-flap-r 0.2s ease-in-out 0.2s 16 alternate, flap-r 3.4s ease-in-out 3.4s infinite;
+    animation: intro-flap-r 0.2s ease-in-out 0.2s 16 alternate, flap-r 3.4s linear 3.4s infinite;
   }
   .welcome--intro .welcome__enter { animation-delay: 4.3s; }
   .welcome--intro .welcome__lang { animation-delay: 4.6s; }
