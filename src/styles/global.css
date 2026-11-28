@@ -1608,3 +1608,31 @@ p { margin: 0 0 1em; }
   -webkit-mask-image: linear-gradient(transparent, #000 4rem, #000 calc(100% - 4rem), transparent);
           mask-image: linear-gradient(transparent, #000 4rem, #000 calc(100% - 4rem), transparent);
 }
+/* 6. Filosofía en celular: como en la compu, la foto de Sully translúcida
+   encima del hada con alas */
+@media (max-width: 820px) {
+  .philo::before {
+    background:
+      linear-gradient(rgb(216 188 236 / 0.55), rgb(216 188 236 / 0.55)),
+      var(--philo-bg, none) left 30vw top 1.5rem / min(95vw, 520px) auto no-repeat,
+      rgb(120 84 172);
+  }
+  .philo__img {
+    max-width: 460px;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 15%;
+    opacity: 0.55;
+    justify-self: start;
+    margin-inline-start: -4%;
+  }
+  .philo__text { justify-self: center; }
+  /* En árabe todo va espejado: Sully a la derecha y el hada a la izquierda */
+  [dir='rtl'] .philo::before {
+    background:
+      linear-gradient(rgb(216 188 236 / 0.55), rgb(216 188 236 / 0.55)),
+      var(--philo-bg, none) right 30vw top 1.5rem / min(95vw, 520px) auto no-repeat,
+      rgb(120 84 172);
+  }
+}
