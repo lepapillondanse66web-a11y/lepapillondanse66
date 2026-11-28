@@ -11,6 +11,22 @@ import LanguageSwitcher from './LanguageSwitcher'
 export default function Welcome() {
   const { t } = useTranslation()
   const [state, setState] = useState('open') // open | closing | closed
+  // La intro de la mariposa se ve la primera vez; si vuelve a entrar en la
+  // misma visita (otra pestaña, recargar), la bienvenida aparece directo
+  const [intro] = useState(() => {
+    try {
+      return !sessionStorage.getItem('papillon-intro')
+    } catch {
+      return true
+    }
+  })
+  useEffect(() => {
+    try {
+      sessionStorage.setItem('papillon-intro', '1')
+    } catch {
+      /* sin almacenamiento: se ve la intro siempre */
+    }
+  }, [])
   const button = useRef(null)
 
   useEffect(() => {
@@ -33,7 +49,7 @@ export default function Welcome() {
 
   return (
     <div
-      className={`welcome welcome--intro sky ${state === 'closing' ? 'welcome--closing' : ''}`}
+      className={`welcome ${intro ? 'welcome--intro' : ''} sky ${state === 'closing' ? 'welcome--closing' : ''}`}
       role="dialog"
       aria-modal="true"
       aria-label="Le Papillon Danse 66"
@@ -43,7 +59,7 @@ export default function Welcome() {
       <div className="welcome__lang">
         <LanguageSwitcher />
       </div>
-      <FlutterLogo className="welcome__logo" intro />
+      <FlutterLogo className="welcome__logo" intro={intro} />
       <OrnateButton ref={button} className="welcome__enter" onClick={() => enter(true)}>
         {t('welcome.enter')}
       </OrnateButton>

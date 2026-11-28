@@ -1792,3 +1792,13 @@ p { margin: 0 0 1em; }
   93% { scale: 0.7; rotate: 0deg; opacity: 0.9; }
   100% { scale: 0; rotate: 20deg; opacity: 0; }
 }
+/* Bienvenida en pantallas bajitas (celular acostado): el logo se achica para
+   que entren los dos botones */
+.welcome__logo { width: min(62vw, 340px, 46vh); }
+@media (max-height: 520px) {
+  .welcome { gap: 0.6rem; }
+  .welcome__logo { margin-block-end: 0.25rem; }
+  .welcome__silent { margin-block-start: 0.4rem; }
+}
+/* Cursos: aire entre la introducción y la tarjeta de la clase presencial */
+.info + .in-person { margin-block-start: 2.75rem; }
