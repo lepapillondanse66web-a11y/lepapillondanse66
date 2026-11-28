@@ -84,6 +84,18 @@ export default function FlutterLogo({ className = '', alt = 'Le Papillon Danse',
         {intro && <img className="flutter__layer flutter__body" src={IMAGES.logoLayers.front} alt="" />}
       </span>
       <img className="flutter__layer flutter__front" src={IMAGES.logoLayers.front} alt="" />
+      {intro && (
+        <>
+          {/* Brillo final que cruza el logo (solo sobre el dibujo, no el fondo) */}
+          <span className="flutter__shine" style={{ '--logo-mask': `url(${IMAGES.logo})` }} aria-hidden="true" />
+          {/* Destello de la gema del centro de la mariposa */}
+          <span className="flutter__glint" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <path d="M20 0 C21.2 14 26 18.8 40 20 C26 21.2 21.2 26 20 40 C18.8 26 14 21.2 0 20 C14 18.8 18.8 14 20 0Z" />
+            </svg>
+          </span>
+        </>
+      )}
     </span>
   )
 }
